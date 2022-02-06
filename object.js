@@ -5,24 +5,25 @@ const customers = [
         favouriteProducts: [
         {
             category: "tv",
-            color: "black"
+            color: "white"
         }
     ]
-    }
+    },
+
     {
         id: 2,
         name: "Ferenc",
         favouriteProducts: [
             {
                 category: "headphone",
-                color: "white"
+                color: "black"
             }
         ]
     }
 ]
 const products = [
     {
-        id: 1
+        id: 1,
         category: "tv",
         color: "white"
     }
@@ -34,7 +35,7 @@ const findFavouriteProductId = (prods, custs) => {
     for (const prod of prods) {
         for (const cust of custs) {
             for (const fav of cust.favouriteProducts) {
-                if (fav === prod.category && fav.color === prod.color){
+                if (fav.category === prod.category && fav.color === prod.color){
                     result.push({
                         customerName: cust.name,
                         productId: prod.id
@@ -46,4 +47,5 @@ const findFavouriteProductId = (prods, custs) => {
     return result;
 }
 
-findFavouriteProductsId(products, customers);
+console.log(findFavouriteProductId(products, customers));
+
